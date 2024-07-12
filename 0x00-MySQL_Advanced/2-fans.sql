@@ -1,11 +1,5 @@
--- Task 2: Best band ever!
--- Rank country origins of bands by number of fans
-
--- Import the table dump
-SOURCE metal_bands.sql;
-
--- Query to rank bands by country based on number of fans
-SELECT origin AS origin, COUNT(*) AS nb_fans
-FROM bands
+-- 2-fans.sql
+SELECT origin, SUM(fans) AS nb_fans
+FROM metal_bands
 GROUP BY origin
 ORDER BY nb_fans DESC;
