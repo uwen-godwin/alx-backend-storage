@@ -1,5 +1,2 @@
-// 6-update.js
-db.school.updateMany(
-  { name: "Holberton school" },
-  { $set: { address: "972 Mission street" } }
-);
+// adds new attribute to a document collection
+db.school.updateMany({name: "Holberton school"}, { $set: {address: "972 Mission street"} }, { upsert: true })
