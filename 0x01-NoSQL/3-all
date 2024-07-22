@@ -1,1 +1,2 @@
 // Lists all dicument in the school collection schooldb.school.find().pretty()
+db.school.find()

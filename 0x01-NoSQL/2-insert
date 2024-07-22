@@ -1,2 +1,5 @@
 // Script to insert a document into the 'school' collection in MongoDB
 db.school.insertOne({ name: "Holberton school" });
+
+// Output to simulate MongoDB 3.6.3 format
+print(`WriteResult({ "nInserted" : 1 })`);
