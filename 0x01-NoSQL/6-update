@@ -1,2 +1,3 @@
 // adds new attribute to a document collection
-db.school.updateMany({name: "Holberton school"}, { $set: {address: "972 Mission street"} }, { upsert: true })
+db.school.updateMany({name: "Holberton school"}, { $set: {address: "972 Mission street"} },
+{ upsert:true })
