@@ -1,10 +1,19 @@
-#!/usr/bin/end python3
+#!/usr/bin/env python3
 """
-Module 8-all
-Contains a function that list all documents in a collection
+Interact with the Mongodb with the pymongo Lib
 """
+
+
 def list_all(mongo_collection):
-  """ List all documents in a collection """
-  return [doc for doc in mongo_collection.find()]
+    """
+    parameter:
+        mongo_collection: mongodb_object
 
-
+    return:
+        empty list if no document in the collection
+    """
+    document_object = mongo_collection.find()
+    if document_object:
+        return list(document_object)
+    else:
+        return []
