@@ -1,1 +1,2 @@
-db.school.find({ "name": { $regex: "^Holberton" } });
+// using filter formation
+db.school.find({name: {$regex: "^Holberton"}})
