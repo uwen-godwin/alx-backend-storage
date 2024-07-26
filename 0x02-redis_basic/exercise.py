@@ -6,22 +6,25 @@ import uuid
 from typing import Callable, Optional
 import functools  # Add this import
 
+
 def call_history(method: Callable) -> Callable:
     """Decorator to store the history of inputs and outputs of a method."""
     @functools.wraps(method)  # Use functools.wraps
     def wrapper(self, *args, **kwargs):
         """Wraps the method to store history."""
+
         # Store inputs
         self._redis.rpush(f"{method.__qualname__}:inputs", str(args))
-        
+
         # Call the original method
         result = method(self, *args, **kwargs)
-        
+
         # Store outputs
         self._redis.rpush(f"{method.__qualname__}:outputs", result)
-        
+
         return result
     return wrapper
+
 
 class Cache:
     """Class to interact with Redis."""
@@ -52,6 +55,7 @@ class Cache:
     def get_int(self, key: str) -> int:
         """Retrieve data as an integer."""
         return self.get(key, lambda d: int(d))
+
 
 def replay(method: Callable) -> None:
     """Displays the history of calls of a particular method."""

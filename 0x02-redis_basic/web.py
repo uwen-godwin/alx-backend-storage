@@ -6,6 +6,7 @@ import requests
 import redis
 from typing import Callable
 
+
 def get_page(url: str) -> str:
     cache = redis.Redis()
     cached_page = cache.get(f"count:{url}")
